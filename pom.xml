@@ -52,4 +52,23 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>artifactory</id>
+            <name>***REMOVED***</name>
+            <url>***REMOVED***</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>***REMOVED***</name>
+            <url>***REMOVED***</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm>
+        <developerConnection>***REMOVED***
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
 </project>
