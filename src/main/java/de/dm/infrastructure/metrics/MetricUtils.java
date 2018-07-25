@@ -2,7 +2,6 @@ package de.dm.infrastructure.metrics;
 
 
 import de.dm.infrastructure.metrics.annotation.aop.Metric;
-import de.dm.infrastructure.metrics.annotation.aop.MetricType;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ConcurrentReferenceHashMap;
@@ -48,19 +47,11 @@ public abstract class MetricUtils {
                 .filter(StringUtils::hasText)
                 .orElse(method.getName());
 
-        MetricType type = methodAnnotation.orElseGet(classAnnotation::get).type();
-        String expression = methodAnnotation.orElseGet(classAnnotation::get).expression();
-        String fieldName = methodAnnotation.orElseGet(classAnnotation::get).fieldName();
-        String prefix = methodAnnotation.orElseGet(classAnnotation::get).prefix();
         String metricName = new StringBuilder()
                 .append(wrapName(StringUtils.uncapitalize(classKey)))
                 .append(StringUtils.uncapitalize(methodKey))
                 .toString();
         attributeMap.put("name", metricName);
-        attributeMap.put("prefix", prefix);
-        attributeMap.put("type", type);
-        attributeMap.put("expression", expression);
-        attributeMap.put("fieldName", fieldName);
         return AnnotationUtils.synthesizeAnnotation(attributeMap, Metric.class, method);
     }
 
