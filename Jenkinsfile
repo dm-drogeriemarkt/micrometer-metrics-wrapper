@@ -7,7 +7,7 @@ pipeline {
     }
 
     libraries {
-        lib('pac-pipeline-libraries@1.16.1')
+        lib('pac-pipeline-libraries@1.16.3')
     }
 
     stages {
