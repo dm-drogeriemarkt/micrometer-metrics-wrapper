@@ -1,0 +1,36 @@
+package de.dm.infrastructure.metrics.annotation.aop;
+
+import de.dm.infrastructure.metrics.testfixtures.InterfaceWithMetricAnnotation;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static org.junit.Assert.assertTrue;
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class ApplicationIntegrationTest {
+    @Autowired
+    private InterfaceWithMetricAnnotation interfaceWithMetricAnnotation;
+
+    @Autowired
+    private SimpleMeterRegistry simpleMeterRegistry;
+
+    @Test
+    public void testIfMemoryMetricClassIsAttachedToRegistry() {
+        this.interfaceWithMetricAnnotation.interfaceMethod();
+
+        AtomicBoolean isIncluded = new AtomicBoolean(false);
+        this.simpleMeterRegistry.forEachMeter(meter -> {
+            if (meter.getId().getName().equals("jvm.memory.used")) {
+                isIncluded.set(true);
+            }
+        });
+        assertTrue(isIncluded.get());
+    }
+}
