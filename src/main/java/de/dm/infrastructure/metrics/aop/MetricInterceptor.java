@@ -24,7 +24,7 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
     }
 
     @Override
-    public Object invoke(MethodInvocation invocation) throws Exception {
+    public Object invoke(MethodInvocation invocation) throws Throwable {
 
         Method method = invocation.getMethod();
         Metric mergedMetricAnnotation = MetricUtils.getMergedMetricAnnotation(method, invocation.getThis());
