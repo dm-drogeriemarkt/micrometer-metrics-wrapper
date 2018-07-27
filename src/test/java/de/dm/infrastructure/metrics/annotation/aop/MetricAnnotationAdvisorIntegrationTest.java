@@ -1,11 +1,9 @@
 package de.dm.infrastructure.metrics.annotation.aop;
 
-import de.dm.infrastructure.metrics.MetricUtils;
 import de.dm.infrastructure.metrics.testfixtures.*;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
