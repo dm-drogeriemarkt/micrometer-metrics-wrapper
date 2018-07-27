@@ -33,16 +33,25 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
         meterRegistry.counter(METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_COUNTER_SUFFIX).increment();
         Timer timer = meterRegistry.timer(METRIC_GAUGE_PREFIX + "." + metricBaseName + "." + METRIC_GAUGE_SUFFIX);
 
-        return  timer.recordCallable(() -> {
+        final Object o = timer.recordCallable(() -> {
             Object invocationResult = null;
             try {
                 invocationResult = invocation.proceed();
             } catch (Throwable throwable) {
                 meterRegistry.counter(METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_ERROR_COUNTER_SUFFIX).increment();
+                invocationResult = throwable;
             }
 
             return invocationResult;
         });
+
+        //TODO find a better way?!
+        if (o instanceof Throwable) {
+            throw (Throwable) o;
+        } else {
+            return o;
+        }
+
     }
 
     @Override
