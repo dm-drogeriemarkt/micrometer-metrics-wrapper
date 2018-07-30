@@ -1,0 +1,5 @@
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
