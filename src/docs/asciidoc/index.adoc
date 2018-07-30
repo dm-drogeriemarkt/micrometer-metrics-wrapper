@@ -1,0 +1,45 @@
+:revnumber: {project-version}
+
+= {name}
+{description}
+:toc: left
+
+== Runtime Dependencies
+
+* Java >= `1.8`
+* Spring Boot >= `2.0.3.RELEASE`
+
+The module was compiled against :
+
+* Spring Boot Actuator = `2.0.3.RELEASE`
+
+== Installation
+
+[source,xml,subs="verbatim,attributes"]
+.Using the library
+----
+    <dependency>
+        <groupId>{project-groupId}</groupId>
+        <artifactId>{project-artifactId}</artifactId>
+        <version>{project-version}</version>
+    </dependency>
+----
+The starter contains all required dependencies, including `spring-boot-starter-actuator v2.0.3.RELEASE`.
+
+== Usage
+
+=== Using the @Metrics annotation
+[source,java]
+.As class level annotation
+----
+
+include::{project-basedir}/src/test/java/de/dm/infrastructure/metrics/testfixtures/WithMetricClassAnnotation.java[tags=usage]
+----
+When used at the class level, metrics for all public methods of the annotated class are collected.
+[source,java]
+.As method level annotation
+----
+
+include::{project-basedir}/src/test/java/de/dm/infrastructure/metrics/testfixtures/WithMetricMethodAnnotation.java[tags=usage]
+----
+When used at the method level, metrics are collected for annotated methods only.
