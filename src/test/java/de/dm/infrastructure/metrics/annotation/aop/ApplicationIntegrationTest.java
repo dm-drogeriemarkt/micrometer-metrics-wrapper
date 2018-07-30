@@ -1,7 +1,7 @@
 package de.dm.infrastructure.metrics.annotation.aop;
 
 import de.dm.infrastructure.metrics.testfixtures.InterfaceWithMetricAnnotation;
-import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +21,14 @@ public class ApplicationIntegrationTest {
     private InterfaceWithMetricAnnotation interfaceWithMetricAnnotation;
 
     @Autowired
-    private SimpleMeterRegistry simpleMeterRegistry;
+    private CompositeMeterRegistry compositeMeterRegistry;
 
     @Test
     public void testIfMemoryMetricClassIsAttachedToRegistry() {
         this.interfaceWithMetricAnnotation.interfaceMethod();
 
         AtomicBoolean isIncluded = new AtomicBoolean(false);
-        this.simpleMeterRegistry.forEachMeter(meter -> {
+        this.compositeMeterRegistry.forEachMeter(meter -> {
             if (meter.getId().getName().equals("jvm.memory.used")) {
                 isIncluded.set(true);
             }
