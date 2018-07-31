@@ -536,6 +536,11 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_using_the_metrics_annotation">Using the @Metrics annotation</a></li>
 </ul>
 </li>
+<li><a href="#_configuration">Configuration</a>
+<ul class="sectlevel2">
+<li><a href="#_default_configuration">Default configuration</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -549,7 +554,7 @@ table.CodeRay td.code>pre{padding:0}
 <p>Java &gt;= <code>1.8</code></p>
 </li>
 <li>
-<p>Spring Boot &gt;= <code>2.0.3.RELEASE</code></p>
+<p>Spring Boot &gt;= <code>2.0.3-RELEASE</code></p>
 </li>
 </ul>
 </div>
@@ -559,7 +564,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="ulist">
 <ul>
 <li>
-<p>Spring Boot Actuator = <code>2.0.3.RELEASE</code></p>
+<p>Spring Boot Actuator = <code>2.0.3-RELEASE</code></p>
 </li>
 </ul>
 </div>
@@ -579,7 +584,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="paragraph">
-<p>The starter contains all required dependencies, including <code>spring-boot-starter-actuator v2.0.3.RELEASE</code>.</p>
+<p>The library contains all required dependencies, including <code>spring-boot-starter-actuator v2.0.3-RELEASE</code>.</p>
 </div>
 </div>
 </div>
@@ -631,11 +636,28 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_configuration">Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_default_configuration">Default configuration</h3>
+<div class="paragraph">
+<p>The library contains a default &lt;micrometer-registry-statsd&gt; which is already configured for default telnet communication.</p>
+</div>
+<div class="paragraph">
+<p>The library also contains a set of default metrics which are provided from the &lt;spring-boot-actuator&gt;</p>
+</div>
+<div class="paragraph">
+<p>Further informations about micrometer can be found here <a href="https://micrometer.io/">micrometer</a></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0-SNAPSHOT<br>
-Last updated 2018-07-31 09:00:35 MESZ
+Last updated 2018-07-31 11:10:25 MESZ
 </div>
 </div>
 </body>

@@ -6,12 +6,12 @@
 
 == Runtime Dependencies
 
-* Java >= `1.8`
-* Spring Boot >= `2.0.3.RELEASE`
+* Java >= `{java-version}`
+* Spring Boot >= `{spring-boot-version}`
 
 The module was compiled against :
 
-* Spring Boot Actuator = `2.0.3.RELEASE`
+* Spring Boot Actuator = `{spring-boot-version}`
 
 == Installation
 
@@ -24,7 +24,7 @@ The module was compiled against :
         <version>{project-version}</version>
     </dependency>
 ----
-The library contains all required dependencies, including `spring-boot-starter-actuator v2.0.3.RELEASE`.
+The library contains all required dependencies, including `spring-boot-starter-actuator v{spring-boot-version}`.
 
 == Usage
 

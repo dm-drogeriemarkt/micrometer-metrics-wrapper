@@ -77,7 +77,8 @@
                         <description>${project.description}</description>
                         <project-groupId>${project.groupId}</project-groupId>
                         <project-artifactId>${project.artifactId}</project-artifactId>
-                        <starter-artifactId>aop-metrics-spring-boot-starter</starter-artifactId>
+                        <spring-boot-version>${spring.boot.version}</spring-boot-version>
+                        <java-version>${java.version}</java-version>
                         <project-version>${project.version}</project-version>
                         <project-basedir>${project.basedir}</project-basedir>
                     </attributes>
