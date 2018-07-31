@@ -24,7 +24,7 @@ The module was compiled against :
         <version>{project-version}</version>
     </dependency>
 ----
-The starter contains all required dependencies, including `spring-boot-starter-actuator v2.0.3.RELEASE`.
+The library contains all required dependencies, including `spring-boot-starter-actuator v2.0.3.RELEASE`.
 
 == Usage
 
@@ -43,3 +43,15 @@ When used at the class level, metrics for all public methods of the annotated cl
 include::{project-basedir}/src/test/java/de/dm/infrastructure/metrics/testfixtures/WithMetricMethodAnnotation.java[tags=usage]
 ----
 When used at the method level, metrics are collected for annotated methods only.
+
+== Configuration
+
+=== Default configuration
+
+The library contains a default <micrometer-registry-statsd> which is already configured for default telnet communication.
+
+The library also contains a set of default metrics which are provided from the <spring-boot-actuator>
+
+Further informations about micrometer can be found here https://micrometer.io/[micrometer]
+
+
