@@ -1,1 +1,1 @@
-* [Documentation HTML](aop-metrics/generated-docs/index.html?raw)
+* [Documentation HTML](metrics/generated-docs/index.html?raw)
