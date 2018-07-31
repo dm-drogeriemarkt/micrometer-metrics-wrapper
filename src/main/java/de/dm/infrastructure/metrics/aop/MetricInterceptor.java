@@ -30,15 +30,15 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
         Metric mergedMetricAnnotation = MetricUtils.getMergedMetricAnnotation(method, invocation.getThis());
         String metricBaseName = mergedMetricAnnotation.name();
 
-        genericClassMethodMetrics.getRegistry().counter(METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_COUNTER_SUFFIX).increment();
-        Timer timer = genericClassMethodMetrics.getRegistry().timer(METRIC_GAUGE_PREFIX + "." + metricBaseName + "." + METRIC_GAUGE_SUFFIX);
+        genericClassMethodMetrics.getRegistry().counter(buildCounterName(metricBaseName)).increment();
+        Timer timer = genericClassMethodMetrics.getRegistry().timer(buildTimerName(metricBaseName));
 
         final Object o = timer.recordCallable(() -> {
-            Object invocationResult = null;
+            Object invocationResult;
             try {
                 invocationResult = invocation.proceed();
             } catch (Throwable throwable) {
-                genericClassMethodMetrics.getRegistry().counter(METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_ERROR_COUNTER_SUFFIX).increment();
+                genericClassMethodMetrics.getRegistry().counter(buildErrorCounterName(metricBaseName)).increment();
                 invocationResult = throwable;
             }
 
@@ -52,6 +52,18 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
             return o;
         }
 
+    }
+
+    private String buildErrorCounterName(String metricBaseName) {
+        return METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_ERROR_COUNTER_SUFFIX;
+    }
+
+    private String buildTimerName(String metricBaseName) {
+        return METRIC_GAUGE_PREFIX + "." + metricBaseName + "." + METRIC_GAUGE_SUFFIX;
+    }
+
+    private String buildCounterName(String metricBaseName) {
+        return METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_COUNTER_SUFFIX;
     }
 
     @Override

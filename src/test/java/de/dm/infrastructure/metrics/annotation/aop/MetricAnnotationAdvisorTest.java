@@ -26,6 +26,7 @@ public class MetricAnnotationAdvisorTest {
     @Mock(answer = Answers.RETURNS_DEEP_STUBS)
     private GenericClassMethodMetrics genericClassMethodMetrics;
     private WithMetricClassAnnotation metricClassAnnotation;
+    private WithMetricMethodAnnotation metricMethodAnnotation;
     private WithoutAnnotation withoutAnnotation;
     private InterfaceWithMetricAnnotation interfaceWithMetricAnnotation;
     private InterfaceWithMethodMetricAnnotation interfaceWithMethodMetricAnnotation;
@@ -35,6 +36,7 @@ public class MetricAnnotationAdvisorTest {
         MetricAnnotationAdvisor metricAnnotationAdvisor = new MetricAnnotationAdvisor(genericClassMethodMetrics);
         metricAnnotationAdvisor.afterPropertiesSet();
         this.metricClassAnnotation = SetupUtil.setUpAdvisedClass(WithMetricClassAnnotation.class, metricAnnotationAdvisor);
+        this.metricMethodAnnotation = SetupUtil.setUpAdvisedClass(WithMetricMethodAnnotation.class, metricAnnotationAdvisor);
         this.withoutAnnotation = SetupUtil.setUpAdvisedClass(WithoutAnnotation.class, metricAnnotationAdvisor);
         this.interfaceWithMetricAnnotation = SetupUtil.setUpAdvisedClass(InterfaceWithMetricAnnotationImpl.class, metricAnnotationAdvisor);
         this.interfaceWithMethodMetricAnnotation = SetupUtil.setUpAdvisedClass(InterfaceWithMethodMetricAnnotationImpl.class, metricAnnotationAdvisor);
@@ -57,6 +59,17 @@ public class MetricAnnotationAdvisorTest {
         String timerName = METRIC_GAUGE_PREFIX + "." + metricBaseName + "." + METRIC_GAUGE_SUFFIX;
 
         metricClassAnnotation.method();
+
+        verify(genericClassMethodMetrics.getRegistry().counter(eq(counterName))).increment();
+        verify(genericClassMethodMetrics.getRegistry()).timer(timerName);
+
+        method = getRealMethod(metricMethodAnnotation, "method");
+        className = Introspector.decapitalize(method.getDeclaringClass().getSimpleName());
+        metricBaseName = className + "." + method.getName();
+        counterName = METRIC_COUNTER_PREFIX + "." + metricBaseName + "." + METRIC_COUNTER_SUFFIX;
+        timerName = METRIC_GAUGE_PREFIX + "." + metricBaseName + "." + METRIC_GAUGE_SUFFIX;
+
+        metricMethodAnnotation.method();
 
         verify(genericClassMethodMetrics.getRegistry().counter(eq(counterName))).increment();
         verify(genericClassMethodMetrics.getRegistry()).timer(timerName);
