@@ -1,1 +1,1 @@
-* [Documentation HTML](metrics/raw/generated-docs/index.html)
+* [Documentation HTML](raw/generated-docs/index.html)
