@@ -3,8 +3,3 @@ management:
     web:
       server:
         auto-time-requests: false
-    export:
-      statsd:
-        enabled: true
-        flavor: telegraf
-        port: 8125

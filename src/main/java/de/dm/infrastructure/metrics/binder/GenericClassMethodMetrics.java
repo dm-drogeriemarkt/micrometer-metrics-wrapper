@@ -2,6 +2,7 @@ package de.dm.infrastructure.metrics.binder;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.binder.MeterBinder;
+import io.micrometer.core.instrument.config.NamingConvention;
 
 /**
  * Generic Metrics that only binds a {@link MeterRegistry} that we can use later
@@ -15,7 +16,7 @@ public class GenericClassMethodMetrics implements MeterBinder {
     public void bindTo(MeterRegistry registry) {
 
         this.registry = registry;
-        //his.registry.config().namingConvention(NamingConvention.dot);
+        this.registry.config().namingConvention(NamingConvention.dot);
     }
 
     public MeterRegistry getRegistry() {
