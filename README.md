@@ -1,1 +1,1 @@
-* [Documentation HTML](https://stash***REMOVED***/projects/INFRASTRUCTURE/repos/metrics/raw/generated-docs/index.html)
+* [Documentation HTML](metrics/generated-docs/index.html?raw)
