@@ -33,23 +33,20 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
         genericClassMethodMetrics.getRegistry().counter(buildCounterName(metricBaseName)).increment();
         Timer timer = genericClassMethodMetrics.getRegistry().timer(buildTimerName(metricBaseName));
 
-        final Object o = timer.recordCallable(() -> {
-            Object invocationResult;
+        final Object invocationResult = timer.recordCallable(() -> {
             try {
-                invocationResult = invocation.proceed();
+                return invocation.proceed();
             } catch (Throwable throwable) {
                 genericClassMethodMetrics.getRegistry().counter(buildErrorCounterName(metricBaseName)).increment();
-                invocationResult = throwable;
+                return throwable;
             }
 
-            return invocationResult;
         });
-
-        //TODO find a better way?!
-        if (o instanceof Throwable) {
-            throw (Throwable) o;
+        
+        if (invocationResult instanceof Throwable) {
+            throw (Throwable) invocationResult;
         } else {
-            return o;
+            return invocationResult;
         }
 
     }
