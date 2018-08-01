@@ -1,4 +1,4 @@
-package de.dm.infrastructure.metrics;
+package de.dm.infrastructure.metrics.aop;
 
 
 import de.dm.infrastructure.metrics.annotation.aop.Metric;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public abstract class MetricUtils {
+class MetricUtils {
 
     private static final Map<AnnotationCacheKey, Metric> findAnnotationCache = new ConcurrentReferenceHashMap<>(256);
 

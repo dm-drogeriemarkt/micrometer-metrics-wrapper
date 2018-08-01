@@ -3,8 +3,6 @@ package de.dm.infrastructure.metrics.aop;
 import de.dm.infrastructure.metrics.annotation.aop.Metric;
 import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
 
-import java.util.Collections;
-
 public class MetricAnnotationAdvisor extends AbstractAnnotationAdvisor {
 
     private GenericClassMethodMetrics genericClassMethodMetrics;
@@ -15,7 +13,7 @@ public class MetricAnnotationAdvisor extends AbstractAnnotationAdvisor {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        this.pointcut = buildPointcut(Collections.singleton(Metric.class));
+        this.pointcut = buildPointcut(Metric.class);
         this.advice = buildAdvice();
         super.afterPropertiesSet();
     }
