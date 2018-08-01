@@ -1,6 +1,5 @@
 package de.dm.infrastructure.metrics.aop;
 
-import de.dm.infrastructure.metrics.MetricUtils;
 import de.dm.infrastructure.metrics.annotation.aop.Metric;
 import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
 import io.micrometer.core.instrument.Timer;
