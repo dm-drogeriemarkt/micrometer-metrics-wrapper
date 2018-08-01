@@ -1,16 +1,16 @@
 package de.dm.infrastructure.metrics.aop;
 
 import de.dm.infrastructure.metrics.annotation.aop.Metric;
-import io.micrometer.core.instrument.MeterRegistry;
+import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
 
 import java.util.Collections;
 
 public class MetricAnnotationAdvisor extends AbstractAnnotationAdvisor {
 
-    private final MeterRegistry meterRegistry;
+    private GenericClassMethodMetrics genericClassMethodMetrics;
 
-    public MetricAnnotationAdvisor(MeterRegistry meterRegistry) {
-        this.meterRegistry = meterRegistry;
+    public MetricAnnotationAdvisor(GenericClassMethodMetrics genericClassMethodMetrics) {
+        this.genericClassMethodMetrics = genericClassMethodMetrics;
     }
 
     @Override
@@ -21,6 +21,6 @@ public class MetricAnnotationAdvisor extends AbstractAnnotationAdvisor {
     }
 
     private MetricInterceptor buildAdvice() {
-        return new MetricInterceptor(this.meterRegistry);
+        return new MetricInterceptor(this.genericClassMethodMetrics);
     }
 }

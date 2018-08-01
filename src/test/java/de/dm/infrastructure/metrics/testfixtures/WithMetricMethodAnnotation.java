@@ -4,10 +4,13 @@ import de.dm.infrastructure.metrics.annotation.aop.Metric;
 
 import java.io.IOException;
 
+/**
+ * @author Jakob Fels
+ */
 //tag::usage[]
-@Metric
-public class WithMetricClassAnnotation {
+public class WithMetricMethodAnnotation {
 
+    @Metric
     public void method() {
 
     }
