@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-abstract class MetricUtils {
+class MetricUtils {
 
     private static final Map<AnnotationCacheKey, Metric> findAnnotationCache = new ConcurrentReferenceHashMap<>(256);
 
