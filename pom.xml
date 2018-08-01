@@ -23,6 +23,11 @@
         <spring.boot.version>2.0.3-RELEASE</spring.boot.version>
         <java.version>1.8</java.version>
         <pcollecttions.version>3.0.1</pcollecttions.version>
+        <jacoco.version>0.8.1</jacoco.version>
+
+        <sonar.coverage.exclusions>
+            **/*Dto.java,**/*Entity.java,**/*App.java,**/*Properties.java
+        </sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
@@ -95,8 +100,85 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+                <configuration>
+                    <inputDirectory>target/generated-docs/</inputDirectory>
+                    <generateReports>false</generateReports>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-descriptor</id>
+                        <goals>
+                            <goal>attach-descriptor</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>instrumentation</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/generated/*.class</exclude>
+                                <exclude>**/*Config*.class</exclude>
+                                <exclude>**/*Constants*.class</exclude>
+                                <exclude>**/*Entity*.class</exclude>
+                                <exclude>**/*Document*.class</exclude>
+                                <exclude>**/*Mock*.class</exclude>
+                                <exclude>**/*Properties*.class</exclude>
+                                <exclude>**/*App.class</exclude>
+                                <exclude>**/*Dto.class</exclude>
+                                <exclude>**/*FeignClient.class</exclude>
+                                <exclude>**/*Data.class</exclude>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default-prepare-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-prepare-agent-integration</id>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-report</id>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-report-integration</id>
+                                <goals>
+                                    <goal>report-integration</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <distributionManagement>
         <repository>
@@ -109,6 +191,11 @@
             <name>***REMOVED***</name>
             <url>***REMOVED***</url>
         </snapshotRepository>
+        <site>
+            <id>pac-docs</id>
+            <name>pac-docs</name>
+            <url>***REMOVED***</url>
+        </site>
     </distributionManagement>
 
     <scm>
