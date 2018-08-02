@@ -4,7 +4,7 @@
 
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>metrics</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
     <name>metrics</name>
@@ -225,7 +225,7 @@
     <scm>
         <developerConnection>***REMOVED***
         </developerConnection>
-        <tag>HEAD</tag>
+        <tag>metrics-1.0.3</tag>
     </scm>
 
 </project>
