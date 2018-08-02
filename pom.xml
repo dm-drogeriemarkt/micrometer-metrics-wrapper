@@ -102,6 +102,13 @@
                             <backend>html5</backend>
                             <doctype>book</doctype>
                             <attributes>
+                                <name>${project.name}</name>
+                                <description>${project.description}</description>
+                                <project-groupId>${project.groupId}</project-groupId>
+                                <project-artifactId>${project.artifactId}</project-artifactId>
+                                <spring-boot-version>${spring.boot.version}</spring-boot-version>
+                                <java-version>${java.version}</java-version>
+                                <project-basedir>${project.basedir}</project-basedir>
                                 <sourceHighlighter>coderay</sourceHighlighter>
                                 <icons>font</icons>
                                 <snippets>${project.build.directory}/generated-snippets</snippets>
