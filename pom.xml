@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>metrics</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>metrics</name>
@@ -103,6 +102,13 @@
                             <backend>html5</backend>
                             <doctype>book</doctype>
                             <attributes>
+                                <name>${project.name}</name>
+                                <description>${project.description}</description>
+                                <project-groupId>${project.groupId}</project-groupId>
+                                <project-artifactId>${project.artifactId}</project-artifactId>
+                                <spring-boot-version>${spring.boot.version}</spring-boot-version>
+                                <java-version>${java.version}</java-version>
+                                <project-basedir>${project.basedir}</project-basedir>
                                 <sourceHighlighter>coderay</sourceHighlighter>
                                 <icons>font</icons>
                                 <snippets>${project.build.directory}/generated-snippets</snippets>
