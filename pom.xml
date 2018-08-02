@@ -26,6 +26,9 @@
         <pcollecttions.version>3.0.1</pcollecttions.version>
         <jacoco.version>0.8.1</jacoco.version>
         <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+        <asciidoctor-maven-plugin.version>1.5.6</asciidoctor-maven-plugin.version>
+        <asciidoctor-maven-plugin.toclevels>3</asciidoctor-maven-plugin.toclevels>
+        <wagon-webdav.version>2.12</wagon-webdav.version>
 
         <sonar.coverage.exclusions>
             **/*Dto.java,**/*Entity.java,**/*App.java,**/*Properties.java
@@ -65,38 +68,46 @@
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav-jackrabbit</artifactId>
+                <version>${wagon-webdav.version}</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>${asciidoctor-maven-plugin.version}</version>
                 <configuration>
                     <baseDir>${project.basedir}</baseDir>
-                    <sourceDirectory>${project.basedir}/src/docs/asciidoc</sourceDirectory>
-                    <outputDirectory>generated-docs</outputDirectory>
+                    <sourceDirectory>${project.basedir}/src/site/asciidoc</sourceDirectory>
+                    <outputDirectory>${project.build.directory}/generated-docs</outputDirectory>
                     <headerFooter>true</headerFooter>
                     <attributes>
-                        <name>${project.name}</name>
-                        <description>${project.description}</description>
-                        <project-groupId>${project.groupId}</project-groupId>
-                        <project-artifactId>${project.artifactId}</project-artifactId>
-                        <spring-boot-version>${spring.boot.version}</spring-boot-version>
-                        <java-version>${java.version}</java-version>
+                        <project-group-id>${project.groupId}</project-group-id>
+                        <project-artifact-id>${project.artifactId}</project-artifact-id>
                         <project-version>${project.version}</project-version>
-                        <project-basedir>${project.basedir}</project-basedir>
+                        <sourceDirectory>${project.basedir}/src/site/asciidoc</sourceDirectory>
                     </attributes>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>output-html</id>
-                        <phase>compile</phase>
+                        <id>generate-docs</id>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
-                            <sourceHighlighter>coderay</sourceHighlighter>
                             <backend>html5</backend>
+                            <doctype>book</doctype>
                             <attributes>
+                                <sourceHighlighter>coderay</sourceHighlighter>
                                 <icons>font</icons>
+                                <snippets>${project.build.directory}/generated-snippets</snippets>
+                                <toc>left</toc>
+                                <toclevels>${asciidoctor-maven-plugin.toclevels}</toclevels>
                             </attributes>
                         </configuration>
                     </execution>
