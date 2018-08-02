@@ -1,3 +1,7 @@
+## 1.0.3:
+* Fehlende pcollections Bibliothek nachgezogen
+
+
 ## 1.0.2:
 * Properties für Dokumentation nachgezogen
 
