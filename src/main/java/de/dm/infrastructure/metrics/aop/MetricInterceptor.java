@@ -16,7 +16,7 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
     public static final String METRIC_GAUGE_PREFIX = "gauge";
     public static final String METRIC_GAUGE_SUFFIX = "executionTime";
     public static final String METRIC_ERROR_COUNTER_SUFFIX = "errorCount";
-    private GenericClassMethodMetrics genericClassMethodMetrics;
+    private final GenericClassMethodMetrics genericClassMethodMetrics;
 
     public MetricInterceptor(GenericClassMethodMetrics genericClassMethodMetrics) {
         this.genericClassMethodMetrics = genericClassMethodMetrics;
@@ -41,13 +41,12 @@ public class MetricInterceptor implements MethodInterceptor, Ordered {
             }
 
         });
-        
+
         if (invocationResult instanceof Throwable) {
             throw (Throwable) invocationResult;
         } else {
             return invocationResult;
         }
-
     }
 
     private String buildErrorCounterName(String metricBaseName) {

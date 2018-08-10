@@ -33,5 +33,4 @@ public class MockContext {
     public MeterRegistry simpleMeterRegistry() {
         return new SimpleMeterRegistry();
     }
-
 }

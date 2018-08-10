@@ -5,5 +5,4 @@ public class WithoutAnnotation {
     public void method() {
 
     }
-
 }

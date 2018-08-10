@@ -21,13 +21,11 @@ import static org.junit.Assert.assertTrue;
 @DirtiesContext
 @RunWith(SpringRunner.class)
 public class ApplicationIntegrationTest {
+
     @Autowired
     private InterfaceWithMetricAnnotation interfaceWithMetricAnnotation;
-
     @Autowired
     private CompositeMeterRegistry compositeMeterRegistry;
-
-
     @Autowired
     private StatsdProperties statsdProperties;
 

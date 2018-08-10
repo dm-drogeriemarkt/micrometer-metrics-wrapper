@@ -8,7 +8,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Method;
 
-
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value = {ElementType.METHOD, ElementType.TYPE})
 public @interface Metric {
@@ -32,5 +31,4 @@ public @interface Metric {
      */
     @AliasFor("value")
     String name() default "";
-
 }
