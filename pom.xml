@@ -9,29 +9,55 @@
 
     <name>metrics</name>
     <description>Micrometer wrapper to allow generic class level metric values</description>
+    <url>https://github.com/dm-drogeriemarkt/metrics</url>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <organization>dm-drogerie markt GmbH &amp; Co. KG</organization>
+            <organizationUrl>https://dm.de</organizationUrl>
+            <name>Marcus Fessele</name>
+            <email>marcus.fessele@dm.de</email>
+        </developer>
+        <developer>
+            <organization>dm-drogerie markt GmbH &amp; Co. KG</organization>
+            <organizationUrl>https://dm.de</organizationUrl>
+            <name>Dominik Johs</name>
+            <email>dominik.johs@dm.de</email>
+        </developer>
+        <developer>
+            <organization>dm-drogerie markt GmbH &amp; Co. KG</organization>
+            <organizationUrl>https://dm.de</organizationUrl>
+            <name>Samuel Abt</name>
+            <email>samuel.abt@dm.de</email>
+        </developer>
+    </developers>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.4.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring.boot.version>2.0.3-RELEASE</spring.boot.version>
         <java.version>1.8</java.version>
-        <pcollecttions.version>3.0.1</pcollecttions.version>
-        <jacoco.version>0.8.1</jacoco.version>
-        <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
-        <asciidoctor-maven-plugin.version>1.5.6</asciidoctor-maven-plugin.version>
-        <asciidoctor-maven-plugin.toclevels>3</asciidoctor-maven-plugin.toclevels>
-        <wagon-webdav.version>2.12</wagon-webdav.version>
 
-        <sonar.coverage.exclusions>
-            **/*Dto.java,**/*Entity.java,**/*App.java,**/*Properties.java
-        </sonar.coverage.exclusions>
+        <spring.boot.version>2.0.3-RELEASE</spring.boot.version>
+        <pcollecttions.version>${maven-source-plugin.version}</pcollecttions.version>
+        <maven-release-plugin.version>2.5.2</maven-release-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version.version>3.0.1</maven-javadoc-plugin.version.version>
+        <sonar.coverage.exclusions>**/*App.java,**/*Properties.java</sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
@@ -72,129 +98,80 @@
     </dependencies>
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-webdav-jackrabbit</artifactId>
-                <version>${wagon-webdav.version}</version>
-            </extension>
-        </extensions>
         <plugins>
             <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>${asciidoctor-maven-plugin.version}</version>
-                <configuration>
-                    <baseDir>${project.basedir}</baseDir>
-                    <sourceDirectory>${project.basedir}/src/site/asciidoc</sourceDirectory>
-                    <outputDirectory>${project.build.directory}/generated-docs</outputDirectory>
-                    <headerFooter>true</headerFooter>
-                    <attributes>
-                        <project-group-id>${project.groupId}</project-group-id>
-                        <project-artifact-id>${project.artifactId}</project-artifact-id>
-                        <project-version>${project.version}</project-version>
-                        <sourceDirectory>${project.basedir}/src/site/asciidoc</sourceDirectory>
-                    </attributes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-docs</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>html5</backend>
-                            <doctype>book</doctype>
-                            <attributes>
-                                <name>${project.name}</name>
-                                <description>${project.description}</description>
-                                <project-groupId>${project.groupId}</project-groupId>
-                                <project-artifactId>${project.artifactId}</project-artifactId>
-                                <spring-boot-version>${spring.boot.version}</spring-boot-version>
-                                <java-version>${java.version}</java-version>
-                                <project-basedir>${project.basedir}</project-basedir>
-                                <sourceHighlighter>coderay</sourceHighlighter>
-                                <icons>font</icons>
-                                <snippets>${project.build.directory}/generated-snippets</snippets>
-                                <toc>left</toc>
-                                <toclevels>${asciidoctor-maven-plugin.toclevels}</toclevels>
-                            </attributes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.version}</version>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>${maven-site-plugin.version}</version>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
                 <configuration>
-                    <inputDirectory>target/generated-docs/</inputDirectory>
-                    <generateReports>false</generateReports>
+                    <tagNameFormat>v@{project.version}-${project.artifactId}</tagNameFormat>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-descriptor</id>
-                        <goals>
-                            <goal>attach-descriptor</goal>
-                        </goals>
-                    </execution>
-                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
-            <id>instrumentation</id>
+            <id>build-extras</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <configuration>
-                            <excludes>
-                                <exclude>**/generated/*.class</exclude>
-                                <exclude>**/*Config*.class</exclude>
-                                <exclude>**/*Constants*.class</exclude>
-                                <exclude>**/*Entity*.class</exclude>
-                                <exclude>**/*Document*.class</exclude>
-                                <exclude>**/*Mock*.class</exclude>
-                                <exclude>**/*Properties*.class</exclude>
-                                <exclude>**/*App.class</exclude>
-                                <exclude>**/*Dto.class</exclude>
-                                <exclude>**/*FeignClient.class</exclude>
-                                <exclude>**/*Data.class</exclude>
-                            </excludes>
-                        </configuration>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>default-prepare-agent</id>
+                                <id>attach-sources</id>
                                 <goals>
-                                    <goal>prepare-agent</goal>
+                                    <goal>jar-no-fork</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <executions>
                             <execution>
-                                <id>default-prepare-agent-integration</id>
+                                <id>attach-javadocs</id>
                                 <goals>
-                                    <goal>prepare-agent-integration</goal>
+                                    <goal>jar</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>sign</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
                             <execution>
-                                <id>default-report</id>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
                                 <goals>
-                                    <goal>report</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>default-report-integration</id>
-                                <goals>
-                                    <goal>report-integration</goal>
+                                    <goal>sign</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -205,27 +182,21 @@
     </profiles>
 
     <distributionManagement>
-        <repository>
-            <id>artifactory</id>
-            <name>***REMOVED***</name>
-            <url>***REMOVED***</url>
-        </repository>
         <snapshotRepository>
-            <id>snapshots</id>
-            <name>***REMOVED***</name>
-            <url>***REMOVED***</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
-        <site>
-            <id>pac-docs</id>
-            <name>pac-docs</name>
-            <url>***REMOVED***</url>
-        </site>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
     </distributionManagement>
 
     <scm>
+        <connection>***REMOVED***</connection>
         <developerConnection>***REMOVED***
         </developerConnection>
-        <tag>HEAD</tag>
+        <url>http://github.com/dm-drogeriemarkt/metrics/tree/master</url>
     </scm>
 
 </project>
