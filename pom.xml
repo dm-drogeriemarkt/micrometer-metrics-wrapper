@@ -193,8 +193,8 @@
     </distributionManagement>
 
     <scm>
-        <connection>***REMOVED***</connection>
-        <developerConnection>***REMOVED***
+        <connection>scm:git:git://github.com/dm-drogeriemarkt/ametrics.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/dm-drogeriemarkt/metrics.git
         </developerConnection>
         <url>http://github.com/dm-drogeriemarkt/metrics/tree/master</url>
     </scm>
