@@ -73,6 +73,14 @@ public class WithMetricMethodAnnotation {
 
 When used at the method level, metrics are collected for annotated methods only.
 
+##Configuration
+
+The library contains a default <micrometer-registry-statsd> which is already configured for default telegraf communication.
+
+The library also contains a set of default metrics which are provided from the <spring-boot-actuator>
+
+Further informations about micrometer can be found [here](https://micrometer.io)
+
 ## Measurements
 
 For every annotated class/method the library creates the following measurements:
