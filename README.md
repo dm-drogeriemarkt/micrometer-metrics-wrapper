@@ -1,8 +1,8 @@
 # Metrics
-> [Micrometer](micrometer.io) wrapper to allow generic class/method level metric values
+> [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values
 
-The Metrics project is a [Micrometer](micrometer.io) wrapper to allow generic class/method level metric values. 
-For this reason the library offers the ```@Metric``` annotation, which uses ```className.methodName``` as name of the measurement. 
+The Metrics project is a [Micrometer](https://icrometer.io) wrapper to allow generic class/method level metric values. 
+For this reason the library offers the ```@Metric``` annotation, which uses ```className.methodName``` as name for the measurement. 
 For example, if you apply ```@Metric``` to some ```class```
 you will get the following measurements for every ```public``` method of the ```class```:
 
@@ -20,9 +20,6 @@ The library was compiled against:
     - Spring Boot Acutator 2.0.3-RELEASE
 
 ## Installation
-
-Describe all steps that are required to build and/or install your product, ideally with an example.
-
 ```
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
@@ -75,8 +72,6 @@ public class WithMetricMethodAnnotation {
 ```
 
 When used at the method level, metrics are collected for annotated methods only.
-
-
 
 ## Measurements
 
