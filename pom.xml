@@ -53,7 +53,6 @@
         <java.version>1.8</java.version>
 
         <spring.boot.version>2.0.4-RELEASE</spring.boot.version>
-        <pcollecttions.version>${maven-source-plugin.version}</pcollecttions.version>
         <maven-release-plugin.version>2.5.2</maven-release-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version.version>3.0.1</maven-javadoc-plugin.version.version>
