@@ -5,7 +5,7 @@ import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
 
 public class MetricAnnotationAdvisor extends AbstractAnnotationAdvisor {
 
-    private GenericClassMethodMetrics genericClassMethodMetrics;
+    private final GenericClassMethodMetrics genericClassMethodMetrics;
 
     public MetricAnnotationAdvisor(GenericClassMethodMetrics genericClassMethodMetrics) {
         this.genericClassMethodMetrics = genericClassMethodMetrics;

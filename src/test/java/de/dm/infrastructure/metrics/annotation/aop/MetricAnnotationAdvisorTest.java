@@ -40,7 +40,6 @@ public class MetricAnnotationAdvisorTest {
         this.withoutAnnotation = SetupUtil.setUpAdvisedClass(WithoutAnnotation.class, metricAnnotationAdvisor);
         this.interfaceWithMetricAnnotation = SetupUtil.setUpAdvisedClass(InterfaceWithMetricAnnotationImpl.class, metricAnnotationAdvisor);
         this.interfaceWithMethodMetricAnnotation = SetupUtil.setUpAdvisedClass(InterfaceWithMethodMetricAnnotationImpl.class, metricAnnotationAdvisor);
-
     }
 
     @Test
@@ -108,6 +107,4 @@ public class MetricAnnotationAdvisorTest {
         Method method = ReflectionUtils.findMethod(targetClass, methodName);
         return ReflectionUtils.findMethod(method.getDeclaringClass(), methodName);
     }
-
-
 }

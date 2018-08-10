@@ -22,5 +22,4 @@ public class MicrometerMetricsAutoConfiguration {
     public MetricAnnotationAdvisor metricAnnotationAdvisor(GenericClassMethodMetrics genericClassMethodMetrics) {
         return new MetricAnnotationAdvisor(genericClassMethodMetrics);
     }
-
 }

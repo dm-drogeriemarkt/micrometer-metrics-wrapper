@@ -15,5 +15,4 @@ public class SetupUtil {
         T noProxy = clazz.newInstance();
         return createProxy(advisor, noProxy);
     }
-
 }

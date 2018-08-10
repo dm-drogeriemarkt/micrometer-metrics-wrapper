@@ -9,6 +9,5 @@ public class WithMetricMethodAnnotation {
     public void method() {
 
     }
-
 }
 //end::usage[]

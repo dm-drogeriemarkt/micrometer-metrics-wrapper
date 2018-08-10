@@ -135,6 +135,4 @@ public class MetricAnnotationAdvisorIntegrationTest {
         Method method = ReflectionUtils.findMethod(targetClass, methodName);
         return ReflectionUtils.findMethod(method.getDeclaringClass(), methodName);
     }
-
-
 }

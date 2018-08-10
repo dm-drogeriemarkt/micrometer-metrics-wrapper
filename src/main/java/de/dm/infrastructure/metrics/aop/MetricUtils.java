@@ -1,6 +1,5 @@
 package de.dm.infrastructure.metrics.aop;
 
-
 import de.dm.infrastructure.metrics.annotation.aop.Metric;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -55,14 +54,14 @@ class MetricUtils {
         return AnnotationUtils.synthesizeAnnotation(attributeMap, Metric.class, method);
     }
 
-    static String wrapName(String name) {
+    private static String wrapName(String name) {
         if (StringUtils.hasText(name) && !name.endsWith(".")) {
             name += ".";
         }
         return name;
     }
 
-    public static String getClassName(Method method) {
+    private static String getClassName(Method method) {
         return method.getDeclaringClass().getSimpleName();
     }
 
@@ -75,7 +74,7 @@ class MetricUtils {
 
         private final Class<? extends Annotation> annotationType;
 
-        public AnnotationCacheKey(AnnotatedElement element, Class<? extends Annotation> annotationType) {
+        AnnotationCacheKey(AnnotatedElement element, Class<? extends Annotation> annotationType) {
             this.element = element;
             this.annotationType = annotationType;
         }
@@ -96,6 +95,5 @@ class MetricUtils {
             AnnotationCacheKey otherKey = (AnnotationCacheKey) other;
             return (this.element.equals(otherKey.element) && this.annotationType.equals(otherKey.annotationType));
         }
-
     }
 }

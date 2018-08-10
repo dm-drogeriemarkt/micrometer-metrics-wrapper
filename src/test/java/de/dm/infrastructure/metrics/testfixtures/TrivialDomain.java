@@ -1,6 +1,5 @@
 package de.dm.infrastructure.metrics.testfixtures;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

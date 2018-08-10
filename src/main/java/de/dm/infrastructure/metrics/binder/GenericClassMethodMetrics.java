@@ -22,5 +22,4 @@ public class GenericClassMethodMetrics implements MeterBinder {
     public MeterRegistry getRegistry() {
         return registry;
     }
-
 }
