@@ -73,7 +73,7 @@ public class WithMetricMethodAnnotation {
 
 When used at the method level, metrics are collected for annotated methods only.
 
-##Configuration
+## Configuration
 
 The library contains a default <micrometer-registry-statsd> which is already configured for default telegraf communication.
 
@@ -93,7 +93,7 @@ For every annotated class/method the library creates the following measurements:
 
 # License
 
-Copyright (c) 2017 dm-drogerie markt GmbH & Co. KG, https://dm.de
+Copyright (c) 2018 dm-drogerie markt GmbH & Co. KG, https://dm.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
