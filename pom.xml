@@ -58,6 +58,7 @@
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version.version>3.0.1</maven-javadoc-plugin.version.version>
         <sonar.coverage.exclusions>**/*App.java,**/*Properties.java</sonar.coverage.exclusions>
+        <jacoco.version>0.8.1</jacoco.version>
     </properties>
 
     <dependencies>
@@ -172,6 +173,58 @@
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>instrumentation</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <configuration>
+                            <excludes>
+                                <exclude>**/generated/*.class</exclude>
+                                <exclude>**/*Config*.class</exclude>
+                                <exclude>**/*Constants*.class</exclude>
+                                <exclude>**/*Entity*.class</exclude>
+                                <exclude>**/*Document*.class</exclude>
+                                <exclude>**/*Mock*.class</exclude>
+                                <exclude>**/*Properties*.class</exclude>
+                                <exclude>**/*App.class</exclude>
+                                <exclude>**/*Dto.class</exclude>
+                                <exclude>**/*FeignClient.class</exclude>
+                                <exclude>**/*Data.class</exclude>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default-prepare-agent</id>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-prepare-agent-integration</id>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-report</id>
+                                <goals>
+                                    <goal>report</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>default-report-integration</id>
+                                <goals>
+                                    <goal>report-integration</goal>
                                 </goals>
                             </execution>
                         </executions>
