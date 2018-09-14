@@ -7,7 +7,7 @@
     <version>1.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>metrics</name>
+    <name>micrometer-metrics-wrapper</name>
     <description>Micrometer wrapper to allow generic class level metric values</description>
     <url>https://github.com/dm-drogeriemarkt/metrics</url>
 
