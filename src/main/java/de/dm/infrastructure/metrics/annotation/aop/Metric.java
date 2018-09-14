@@ -16,6 +16,7 @@ public @interface Metric {
      * Alias for {@link #name}.
      * <p>This attribute may <strong>not</strong> be used in conjunction with
      * {@link #name}, but it may be used <em>instead</em> of {@link #name}.
+     * {@return} the metric value
      */
     @AliasFor("name")
     String value() default "";
@@ -28,6 +29,7 @@ public @interface Metric {
      * If left empty (the default) the method's name (as returned by {@link Method#getName()}) will be used.
      * <p>This attribute may <strong>not</strong> be used in conjunction with
      * {@link #value}, but it may be used <em>instead</em> of {@link #value}.
+     * {@return} the metric name
      */
     @AliasFor("value")
     String name() default "";
