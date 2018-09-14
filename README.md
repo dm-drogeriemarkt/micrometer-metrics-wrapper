@@ -75,14 +75,14 @@ When used at the method level, metrics are collected for annotated methods only.
 
 ## Configuration
 
-The library contains a default <micrometer-registry-statsd> which is configured for default datadog communication. 
+The library contains a default [micrometer-registry-statsd](https://github.com/micrometer-metrics/micrometer/tree/master/implementations/micrometer-registry-statsd) which is configured for default datadog communication. 
 You can change this by setting the flavor property:
 
 ```
 management.metrics.export.statsd.flavor
 ```
 
-The library also contains a set of default metrics which are provided from the <spring-boot-actuator>
+The library also contains a set of default metrics which are provided from the [spring-boot-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator)
 
 Further informations about micrometer can be found [here](https://micrometer.io)
 
