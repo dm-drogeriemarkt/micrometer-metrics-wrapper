@@ -75,7 +75,12 @@ When used at the method level, metrics are collected for annotated methods only.
 
 ## Configuration
 
-The library contains a default <micrometer-registry-statsd> which is already configured for default telegraf communication.
+The library contains a default <micrometer-registry-statsd> which is configured for default datadog communication. 
+You can change this by setting the flavor property:
+
+```
+management.metrics.export.statsd.flavor
+```
 
 The library also contains a set of default metrics which are provided from the <spring-boot-actuator>
 
