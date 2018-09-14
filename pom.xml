@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.dm.infrastructure</groupId>
@@ -245,10 +246,10 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git://github.com/dm-drogeriemarkt/ametrics.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/dm-drogeriemarkt/metrics.git
+        <connection>scm:git:git://github.com/dm-drogeriemarkt/micrometer-metrics-wrapper.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/dm-drogeriemarkt/micrometer-metrics-wrapper.git
         </developerConnection>
-        <url>http://github.com/dm-drogeriemarkt/metrics/tree/master</url>
+        <url>http://github.com/dm-drogeriemarkt/micrometer-metrics-wrapper/tree/master</url>
     </scm>
 
 </project>
