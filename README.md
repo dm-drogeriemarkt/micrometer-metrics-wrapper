@@ -1,7 +1,7 @@
 # Metrics
 > [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values
 
-The Metrics project is a [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values. 
+The micrometer-metrics-wrapper project is a [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values. 
 For this reason the library offers the ```@Metric``` annotation, which uses ```className.methodName``` as name for measurements. 
 For example, if you apply ```@Metric``` to some ```class```
 you will get the following measurements for every ```public``` method of the ```class```:
@@ -23,7 +23,7 @@ The library was compiled against:
 ```
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
-    <artifactId>metrics</artifactId>
+    <artifactId>micrometer-metrics-wrapper</artifactId>
     <version>1.0.3</version>
 </dependency>
 ```
