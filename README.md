@@ -1,4 +1,4 @@
-# Metrics
+# Micrometer metrics wrapper
 > [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values
 
 [![Build Status](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper.svg?branch=master)](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper)
@@ -30,7 +30,7 @@ The library was compiled against:
 </dependency>
 ```
 
-The library contains all required dependencies, including [spring-boot-starter-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator) v2.0.3-RELEASE.
+The library contains all required dependencies, including [spring-boot-starter-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator) v2.0.5-RELEASE.
 
 ## Usage
 
