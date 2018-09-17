@@ -1,7 +1,7 @@
 # Metrics
 > [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values
 
-![](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper.svg?branch=master)
+[![Build Status](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper.svg?branch=master)](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper)
 
 The micrometer-metrics-wrapper project is a [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values. 
 For this reason the library offers the ```@Metric``` annotation, which uses ```className.methodName``` as name for measurements. 
