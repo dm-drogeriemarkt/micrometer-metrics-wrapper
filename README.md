@@ -1,6 +1,8 @@
 # Metrics
 > [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values
 
+![](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper.svg?branch=master)
+
 The micrometer-metrics-wrapper project is a [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values. 
 For this reason the library offers the ```@Metric``` annotation, which uses ```className.methodName``` as name for measurements. 
 For example, if you apply ```@Metric``` to some ```class```
@@ -13,18 +15,18 @@ you will get the following measurements for every ```public``` method of the ```
 ## Runtime Dependencies
 
     - Java >= 1.8
-    - Spring Boot >= 2.0.3-RELEASE
+    - Spring Boot >= 2.0.5-RELEASE
     
 The library was compiled against:
 
-    - Spring Boot Acutator 2.0.3-RELEASE
+    - Spring Boot Acutator 2.0.5-RELEASE
 
 ## Installation
 ```
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 </dependency>
 ```
 
