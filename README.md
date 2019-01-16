@@ -1,7 +1,7 @@
 # Micrometer metrics wrapper
 > [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values
 
-[![dmTECH](https://opensourcelogos.aws.dmtech.cloud/dmTECH_opensource_logo%401x.png)](https://www.dmtech.de) 
+[<img src="https://opensourcelogos.aws.dmtech.cloud/dmTECH_opensource_logo.svg" height="20" width="130">](https://dmtech.de/)
 [![Build Status](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper.svg?branch=master)](https://travis-ci.org/dm-drogeriemarkt/micrometer-metrics-wrapper)
 
 The micrometer-metrics-wrapper project is a [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values. 
