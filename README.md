@@ -15,8 +15,8 @@ you will get the following measurements for every ```public``` method of the ```
     
 ## Runtime Dependencies
 
-    - Java >= 1.8
-    - Spring Boot >= 2.1.5-RELEASE
+    - Java >= 11
+    - Spring Boot >= 2.2.0-RELEASE
     
 The library was compiled against:
 
@@ -27,7 +27,7 @@ The library was compiled against:
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
