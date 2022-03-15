@@ -5,8 +5,7 @@
 
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>1.4.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>${project.version}</version>
 
     <name>micrometer-metrics-wrapper</name>
     <description>Micrometer wrapper to allow generic class level metric values</description>
@@ -49,6 +48,8 @@
     </parent>
 
     <properties>
+        <project.version>1.4.0-SNAPSHOT</project.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
