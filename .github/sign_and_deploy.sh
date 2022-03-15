@@ -5,18 +5,8 @@ echo $GPG_KEY_BASE64 | base64 -d  > ${KEY_FILE}
 gpg --passphrase "${GPG_PASSPHRASE}" --batch --yes --fast-import ${KEY_FILE}
 
 if [[ "${REF_TYPE}" == "tag" ]]; then
-    # 'install' cannot be used in addition to 'deploy', because that makes the signatures invalid by re-creating jars
-    # after they have been signed.
-    #
-    # So we can **only** call the 'deploy' target here, which is why 'source:jar' and 'javadoc:jar' are called
-    # explicitly before 'deploy' so that their artifacts are signed, too.
-    #
-    # '-P sign' is used here instead of 'gpg:sign', because 'gpg:sign' seemingly has the same effect as 'install'
-    # (invalid signatures to to re-created jars)
-    #
-    # There may be an easier way to sign and deploy all the artifacts (sources, javadoc, binaries and pom), but after
-    # four hours of debugging this, I'm satisfied that it works at all.
-    mvn --batch-mode -DskipTests=true -Dproject.version=${REF_NAME} -P sign clean source:jar javadoc:jar deploy
+    mvn --settings .github/mvnsettings.xml org.codehaus.mojo:versions-maven-plugin:2.1:set -DnewVersion=REF_NAME 1>/dev/null 2>/dev/null
+    mvn deploy -P sign,build-extras --settings .github/mvnsettings.xml -DskipTests=true -B -U
     SUCCESS=$?
 else
     echo "this should only be run for tags"

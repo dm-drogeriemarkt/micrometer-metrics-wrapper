@@ -5,7 +5,7 @@
 
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>${project.version}</version>
+    <version>1.4.0-SNAPSHOT</version>
 
     <name>micrometer-metrics-wrapper</name>
     <description>Micrometer wrapper to allow generic class level metric values</description>
@@ -48,8 +48,6 @@
     </parent>
 
     <properties>
-        <project.version>1.4.0-SNAPSHOT</project.version>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -150,6 +148,13 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>${maven-javadoc-plugin.version}</version>
+                        <configuration>
+                            <additionalOptions>-Xdoclint:all -Xdoclint:-missing</additionalOptions>
+                            <additionalJOptions>
+                                <additionalJOption>-Xdoclint:all</additionalJOption>
+                                <additionalJOption>-Xdoclint:-missing</additionalJOption>
+                            </additionalJOptions>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
