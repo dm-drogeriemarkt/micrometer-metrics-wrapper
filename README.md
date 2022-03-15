@@ -15,19 +15,19 @@ you will get the following measurements for every ```public``` method of the ```
     
 ## Runtime Dependencies
 
-    - Java >= 11
-    - Spring Boot >= 2.2.0-RELEASE
+    - Java >= 17
+    - Spring Boot >= 2.6.4
     
 The library was compiled against:
 
-    - Spring Boot Acutator 2.1.5-RELEASE
+    - Spring Boot Acutator 2.6.4
 
 ## Installation
 ```
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>1.3.0</version>
+    <version>1.4.0</version>
 </dependency>
 ```
 
