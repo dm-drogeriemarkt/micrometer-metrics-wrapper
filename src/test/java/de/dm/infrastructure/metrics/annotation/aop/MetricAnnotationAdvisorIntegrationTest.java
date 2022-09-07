@@ -20,11 +20,11 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_COUNTER_PREFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_COUNTER_SUFFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_ERROR_COUNTER_SUFFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_GAUGE_PREFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_GAUGE_SUFFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_COUNTER_PREFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_COUNTER_SUFFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_ERROR_COUNTER_SUFFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_GAUGE_PREFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_GAUGE_SUFFIX;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 

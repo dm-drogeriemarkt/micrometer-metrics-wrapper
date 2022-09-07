@@ -1,6 +1,7 @@
 package de.dm.infrastructure.metrics.annotation.aop;
 
 import de.dm.infrastructure.metrics.aop.MetricAnnotationAdvisor;
+import de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor;
 import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
 import de.dm.infrastructure.metrics.testfixtures.InterfaceWithMethodMetricAnnotation;
 import de.dm.infrastructure.metrics.testfixtures.InterfaceWithMethodMetricAnnotationImpl;
@@ -23,10 +24,10 @@ import org.springframework.util.ReflectionUtils;
 import java.beans.Introspector;
 import java.lang.reflect.Method;
 
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_COUNTER_PREFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_COUNTER_SUFFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_GAUGE_PREFIX;
-import static de.dm.infrastructure.metrics.aop.MetricInterceptor.METRIC_GAUGE_SUFFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_COUNTER_PREFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_COUNTER_SUFFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_GAUGE_PREFIX;
+import static de.dm.infrastructure.metrics.aop.WebMvcMetricInterceptor.METRIC_GAUGE_SUFFIX;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 
@@ -43,7 +44,7 @@ class MetricAnnotationAdvisorTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        MetricAnnotationAdvisor metricAnnotationAdvisor = new MetricAnnotationAdvisor(genericClassMethodMetrics);
+        MetricAnnotationAdvisor metricAnnotationAdvisor = new MetricAnnotationAdvisor(new WebMvcMetricInterceptor(genericClassMethodMetrics));
         metricAnnotationAdvisor.afterPropertiesSet();
         this.metricClassAnnotation = SetupUtil.setUpAdvisedClass(WithMetricClassAnnotation.class, metricAnnotationAdvisor);
         this.metricMethodAnnotation = SetupUtil.setUpAdvisedClass(WithMetricMethodAnnotation.class, metricAnnotationAdvisor);

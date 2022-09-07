@@ -5,20 +5,16 @@ import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
 
 public class MetricAnnotationAdvisor extends AbstractAnnotationAdvisor {
 
-    private final GenericClassMethodMetrics genericClassMethodMetrics;
+    private final MetricInterceptor metricInterceptor;
 
-    public MetricAnnotationAdvisor(GenericClassMethodMetrics genericClassMethodMetrics) {
-        this.genericClassMethodMetrics = genericClassMethodMetrics;
+    public MetricAnnotationAdvisor(MetricInterceptor metricInterceptor) {
+        this.metricInterceptor = metricInterceptor;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
         this.pointcut = buildPointcut(Metric.class);
-        this.advice = buildAdvice();
+        this.advice = this.metricInterceptor;
         super.afterPropertiesSet();
-    }
-
-    private MetricInterceptor buildAdvice() {
-        return new MetricInterceptor(this.genericClassMethodMetrics);
     }
 }
