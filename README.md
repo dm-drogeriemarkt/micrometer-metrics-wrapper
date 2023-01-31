@@ -16,18 +16,18 @@ you will get the following measurements for every ```public``` method of the ```
 ## Runtime Dependencies
 
     - Java >= 17
-    - Spring Boot >= 2.7.6
+    - Spring Boot >= 3.0.2
     
 The library was compiled against:
 
-    - Spring Boot Acutator 2.7.6
+    - Spring Boot Acutator 3.0.2
 
 ## Installation
 ```
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>1.4.1</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -82,7 +82,7 @@ The library contains a default [micrometer-registry-statsd](https://github.com/m
 You can change this by setting the flavor property:
 
 ```
-management.metrics.export.statsd.flavor
+management.statsd.metrics.export.flavor
 ```
 
 The library also contains a set of default metrics which are provided from the [spring-boot-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator)
