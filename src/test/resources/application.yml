@@ -1,0 +1,6 @@
+management:
+  statsd:
+    metrics:
+      export:
+        enabled: true
+        flavor: telegraf

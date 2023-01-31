@@ -5,7 +5,7 @@
 
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>1.4.1-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
 
     <name>micrometer-metrics-wrapper</name>
     <description>Micrometer wrapper to allow generic class level metric values</description>
@@ -32,18 +32,12 @@
             <name>Dominik Johs</name>
             <email>dominik.johs@dm.de</email>
         </developer>
-        <developer>
-            <organization>dmTECH GmbH</organization>
-            <organizationUrl>https://www.dmtech.de</organizationUrl>
-            <name>Samuel Abt</name>
-            <email>samuel.abt@dm.de</email>
-        </developer>
     </developers>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.6</version>
+        <version>3.0.2</version>
         <relativePath/>
     </parent>
 
