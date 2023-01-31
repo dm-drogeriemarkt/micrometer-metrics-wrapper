@@ -82,7 +82,7 @@ The library contains a default [micrometer-registry-statsd](https://github.com/m
 You can change this by setting the flavor property:
 
 ```
-management.metrics.export.statsd.flavor
+management.statsd.metrics.export.flavor
 ```
 
 The library also contains a set of default metrics which are provided from the [spring-boot-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator)
