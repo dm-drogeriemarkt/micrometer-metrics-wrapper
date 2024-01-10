@@ -46,10 +46,8 @@ class MetricUtils {
                 .filter(StringUtils::hasText)
                 .orElse(method.getName());
 
-        String metricName = new StringBuilder()
-                .append(wrapName(StringUtils.uncapitalize(classKey)))
-                .append(StringUtils.uncapitalize(methodKey))
-                .toString();
+        String metricName = wrapName(StringUtils.uncapitalize(classKey)) +
+                            StringUtils.uncapitalize(methodKey);
         attributeMap.put("name", metricName);
         return AnnotationUtils.synthesizeAnnotation(attributeMap, Metric.class, method);
     }
@@ -65,34 +63,16 @@ class MetricUtils {
         return method.getDeclaringClass().getSimpleName();
     }
 
-    /**
-     * Copy of {@link org.springframework.core.annotation.AnnotationUtils.AnnotationCacheKey}
-     */
-    private static class AnnotationCacheKey {
-
-        private final AnnotatedElement element;
-
-        private final Class<? extends Annotation> annotationType;
-
-        AnnotationCacheKey(AnnotatedElement element, Class<? extends Annotation> annotationType) {
-            this.element = element;
-            this.annotationType = annotationType;
-        }
-
-        @Override
-        public int hashCode() {
-            return (this.element.hashCode() * 29 + this.annotationType.hashCode());
-        }
+    private record AnnotationCacheKey(AnnotatedElement element, Class<? extends Annotation> annotationType) {
 
         @Override
         public boolean equals(Object other) {
             if (this == other) {
                 return true;
             }
-            if (!(other instanceof AnnotationCacheKey)) {
+            if (!(other instanceof AnnotationCacheKey otherKey)) {
                 return false;
             }
-            AnnotationCacheKey otherKey = (AnnotationCacheKey) other;
             return (this.element.equals(otherKey.element) && this.annotationType.equals(otherKey.annotationType));
         }
     }
