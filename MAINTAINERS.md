@@ -1,2 +1,1 @@
-Marcus Fessele <marcus.fessele@dm.de> (https://github.com/codeislyric)  
-Dominik Johs <dominik.johs@dm.de> (https://github.com/djohs)
+Camillo Krause-Barmann <camillo.krause-barmann@dm.de> (https://github.com/Laksuh)
