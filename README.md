@@ -16,22 +16,22 @@ you will get the following measurements for every ```public``` method of the ```
 ## Runtime Dependencies
 
     - Java >= 21
-    - Spring Boot >= 3.2.1
+    - Spring Boot >= 3.4.1
     
 The library was compiled against:
 
-    - Spring Boot Acutator 3.2.1
+    - Spring Boot Acutator 3.4.1
 
 ## Installation
 ```
 <dependency>
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
 </dependency>
 ```
 
-The library contains all required dependencies, including [spring-boot-starter-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator) v3.2.1.
+The library contains all required dependencies, including [spring-boot-starter-actuator](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-actuator) v3.4.1.
 
 ## Usage
 
@@ -101,7 +101,7 @@ For every annotated class/method the library creates the following measurements:
 
 # License
 
-Copyright (c) 2024 dmTECH GmbH, https://www.dmtech.de
+Copyright (c) 2025 dmTECH GmbH, https://www.dmtech.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
