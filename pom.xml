@@ -5,7 +5,7 @@
 
     <groupId>de.dm.infrastructure</groupId>
     <artifactId>micrometer-metrics-wrapper</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>3.1.0-SNAPSHOT</version>
 
     <name>micrometer-metrics-wrapper</name>
     <description>Micrometer wrapper to allow generic class level metric values</description>
@@ -22,28 +22,28 @@
     <developers>
         <developer>
             <organization>dmTECH GmbH</organization>
-            <organizationUrl>https://www.dmtech.de</organizationUrl>
-            <name>Marcus Fessele</name>
-            <email>marcus.fessele@dm.de</email>
-        </developer>
-        <developer>
-            <organization>dmTECH GmbH</organization>
-            <organizationUrl>https://www.dmtech.de</organizationUrl>
+            <organizationUrl>https://www.dmtech.tech</organizationUrl>
             <name>Dominik Johs</name>
             <email>dominik.johs@dm.de</email>
         </developer>
         <developer>
             <organization>dmTECH GmbH</organization>
-            <organizationUrl>https://www.dmtech.de</organizationUrl>
+            <organizationUrl>https://www.dmtech.tech</organizationUrl>
             <name>Camillo Krause genannt Barmann</name>
             <email>camillo.krause-barmann@dm.de</email>
+        </developer>
+        <developer>
+            <organization>dmTECH GmbH</organization>
+            <organizationUrl>https://www.dmtech.tech</organizationUrl>
+            <name>Bastian Dupps</name>
+            <email>bastian.dupps@dm.de</email>
         </developer>
     </developers>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.1</version>
+        <version>3.4.1</version>
         <relativePath/>
     </parent>
 
@@ -53,12 +53,12 @@
 
         <java.version>21</java.version>
 
-        <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
-        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
-        <maven-javadoc-plugin.version.version>3.6.3</maven-javadoc-plugin.version.version>
-        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-        <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
-        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
+        <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version.version>3.11.2</maven-javadoc-plugin.version.version>
+        <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
+        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+        <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
 
         <sonar.coverage.exclusions>**/*App.java,**/*Properties.java</sonar.coverage.exclusions>
     </properties>
