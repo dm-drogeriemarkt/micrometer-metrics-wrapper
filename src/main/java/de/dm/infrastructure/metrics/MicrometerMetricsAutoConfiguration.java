@@ -2,7 +2,7 @@ package de.dm.infrastructure.metrics;
 
 import de.dm.infrastructure.metrics.aop.MetricAnnotationAdvisor;
 import de.dm.infrastructure.metrics.binder.GenericClassMethodMetrics;
-import org.springframework.boot.actuate.autoconfigure.metrics.CompositeMeterRegistryAutoConfiguration;
+import org.springframework.boot.micrometer.metrics.autoconfigure.CompositeMeterRegistryAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;

@@ -4,7 +4,7 @@ import de.dm.infrastructure.metrics.testfixtures.InterfaceWithMetricAnnotation;
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.autoconfigure.metrics.export.statsd.StatsdProperties;
+import org.springframework.boot.micrometer.metrics.autoconfigure.export.statsd.StatsdProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
