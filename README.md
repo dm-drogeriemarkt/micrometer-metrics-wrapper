@@ -3,6 +3,7 @@
 
 [<img src="https://raw.githubusercontent.com/dm-drogeriemarkt/.github/refs/heads/main/assets/dmtech-open-source-badge.svg" height="20" width="130">](https://dmtech.de/)
 [![Build Status](https://github.com/dm-drogeriemarkt/micrometer-metrics-wrapper/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/dm-drogeriemarkt/micrometer-metrics-wrapper/actions)
+[![Maven Central](https://maven-badges.sml.io/sonatype-central/de.dm.infrastructure/micrometer-metrics-wrapper/badge.svg?subject=maven%20central)](https://central.sonatype.com/artifact/de.dm.infrastructure/micrometer-metrics-wrapper)
 
 The micrometer-metrics-wrapper project is a [Micrometer](https://micrometer.io) wrapper to allow generic class/method level metric values. 
 For this reason the library offers the ```@Metric``` annotation, which uses ```className.methodName``` as name for measurements. 
